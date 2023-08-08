@@ -1,13 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
-import axios from "axios";
-
-const callLambda = async () =>
-  console.log(
-    await axios.get(
-      `https://6csjpnpengggz357h33znqhdhq0crbnp.lambda-url.eu-west-1.on.aws/ `
-    )
-  );
+import { StyleSheet, View, ImageBackground } from "react-native";
+import SimulationForm from "./components/SimulationForm";
 
 export default function App() {
   return (
@@ -16,9 +9,8 @@ export default function App() {
         source={require("./assets/bg.jpg")}
         style={styles.container}
       >
-        <Text>Hello world!</Text>
-        <Button onPress={callLambda} title="Click Me"></Button>
-        <StatusBar style="auto" />
+        <SimulationForm />
+        <StatusBar style="light" />
       </ImageBackground>
     </View>
   );
