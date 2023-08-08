@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.js": "/betting-sim-app/static/js/main.72eecbf1.js",
-    "static/js/256.7a67adaf.js": "/betting-sim-app/static/js/256.7a67adaf.js",
+    "main.js": "/betting-sim-app/static/js/main.725d59e8.js",
+    "static/js/523.186e6226.js": "/betting-sim-app/static/js/523.186e6226.js",
+    "static/media/bg.jpg": "/betting-sim-app/static/media/bg.fdd6e14846e1217d1ef3.jpg",
     "favicon.ico": "/betting-sim-app/favicon.ico",
     "index.html": "/betting-sim-app/index.html",
     "favicon-32.png": "/betting-sim-app/favicon-32.png",
     "favicon-16.png": "/betting-sim-app/favicon-16.png",
     "manifest.json": "/betting-sim-app/manifest.json",
     "serve.json": "/betting-sim-app/serve.json",
-    "main.72eecbf1.js.map": "/betting-sim-app/static/js/main.72eecbf1.js.map",
-    "256.7a67adaf.js.map": "/betting-sim-app/static/js/256.7a67adaf.js.map"
+    "main.725d59e8.js.map": "/betting-sim-app/static/js/main.725d59e8.js.map",
+    "523.186e6226.js.map": "/betting-sim-app/static/js/523.186e6226.js.map"
   },
   "entrypoints": [
-    "static/js/256.7a67adaf.js",
-    "static/js/main.72eecbf1.js"
+    "static/js/523.186e6226.js",
+    "static/js/main.725d59e8.js"
   ]
 }
