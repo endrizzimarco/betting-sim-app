@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Button, Text } from "@rneui/themed";
-import { View, StyleSheet, Image, ImageBackground } from "react-native";
+import { Button } from "@rneui/themed";
+import { View, StyleSheet, Text, ImageBackground } from "react-native";
 import axios from "axios";
 
-const params = {
+const test_params = {
   type: "simulate",
   session_instance: null,
-  won: false,
+  won: 0,
   data: {
-    strategy: "optimal_guetting",
+    strategy: "always_red",
     bankroll: 50,
     bet_unit: 5,
     profit_goal: 100,
@@ -16,39 +16,32 @@ const params = {
 };
 
 const session = {
-  round: 0,
-  bet: 2.5,
-  bankroll: 100,
+  chance: 0,
+  round: 1,
+  next_bet: 5,
+  bankroll: 50,
 };
 
 const SessionDisplay = () => {
   const [sessionInstance, setInstance] = useState(null);
   const [sessionData, setData] = useState(session);
 
-  const startSession = async () => {
+  const tickSession = async (won) => {
     try {
+      const params = {
+        ...test_params,
+        won,
+        session_instance: sessionInstance,
+        data: JSON.stringify(test_params.data),
+      };
       const response = await axios.get(
         `https://pj3bu6xmsqs3xsfvl5wvltpbtq0hofed.lambda-url.eu-west-1.on.aws/`,
-        params
+        { params }
       );
       // Assuming the response contains the chance value
-      setInstance(response.data.state);
       console.log(response);
-    } catch (error) {
-      console.error("Error calling Lambda:", error);
-    }
-  };
-
-  const continueSession = async () => {
-    try {
-      const response = await axios.get(
-        `https://pj3bu6xmsqs3xsfvl5wvltpbtq0hofed.lambda-url.eu-west-1.on.aws/`,
-        { type: "simulate", session_instance: sessionInstance }
-      );
-      // Assuming the response contains the chance value
       setInstance(response.data.state);
       setData(response.data.data);
-      console.log(response);
     } catch (error) {
       console.error("Error calling Lambda:", error);
     }
@@ -57,39 +50,34 @@ const SessionDisplay = () => {
   return (
     <View style={{ width: "100%", flex: 1 }}>
       <View style={styles.container}>
-        <Text h1 h1Style={styles.h1Style}>
-          Heading 1
-        </Text>
-        <Text h4 style={styles.text}>
-          Current Bankroll: {sessionData.round}
-        </Text>
-        <Text h4 style={styles.text}>
-          Round: {sessionData.round}
-        </Text>
-        <Text h4 style={styles.text}>
-          Next Bet: {sessionData.round}
+        <Text style={styles.textshadow}>
+          Current Chance: {sessionData.chance.toFixed(2)}%
         </Text>
 
-        <Button size="xl" color="green">
+        <Text style={styles.textshadow}>
+          Current Bankroll: {sessionData.bankroll}
+        </Text>
+        <Text style={styles.textshadow}>Round: {sessionData.round}</Text>
+        <Text style={styles.textshadow}>Next Bet: {sessionData.next_bet}</Text>
+
+        <Button onPress={() => tickSession(1)} size="xl" color="green">
           WON
         </Button>
-        <Button buttonStyle={styles.button} size="xl" color="red">
-          LOST
-        </Button>
         <Button
-          onPress={startSession}
+          onPress={() => tickSession(0)}
           buttonStyle={styles.button}
           size="xl"
-          color="grey"
+          color="red"
         >
-          START SESSION
+          LOST
         </Button>
       </View>
-      {/* <ImageBackground
-        source={require("../assets/cheerleader-pom-poms.gif")}
-        imageStyle={{ resizeMode: "repeat" }}
-        style={{ flex: 1, width: "100%", height: "100%" }}
-      /> */}
+      <ImageBackground
+        source={require("../assets/cat-jump.gif")}
+        imageStyle={{ flex: 1 }}
+        resizeMode="repeat"
+        style={{ flex: 1, width: undefined, height: undefined }}
+      />
     </View>
   );
 };
@@ -99,16 +87,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    width: "80%",
-    flex: 1,
-    justifyContent: "center",
-    marginTop: 300,
+    marginTop: 40,
   },
   button: {
     marginTop: 20,
   },
   h1Style: {
-    fontWeight: "300",
+    fontWeight: 300,
     color: "#fff",
   },
   text: {
@@ -118,6 +103,15 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     resizeMode: "contain",
+  },
+  textshadow: {
+    fontSize: 20,
+    color: "#FFFFFF",
+    fontFamily: "Roboto",
+    marginLeft: 5,
+    textShadowColor: "#585858",
+    textShadowOffset: { width: 5, height: 5 },
+    textShadowRadius: 5,
   },
 });
 
