@@ -5,5 +5,13 @@
   "name": "betting-sim-app",
   "short_name": "betting-sim-app",
   "start_url": "/?utm_source=web_app_manifest",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.endrizzimarco.bettingsimapp",
+      "id": "com.endrizzimarco.bettingsimapp"
+    }
+  ],
+  "prefer_related_applications": true
 }
