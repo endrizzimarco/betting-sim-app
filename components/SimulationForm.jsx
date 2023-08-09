@@ -1,7 +1,7 @@
 import { Button, Text, Card } from "@rneui/themed";
 import React, { useState } from "react";
 import axios from "axios";
-import { View } from "react-native";
+import { View, ImageBackground } from "react-native";
 
 const SimulationForm = () => {
   const [chance, setChance] = useState(false);

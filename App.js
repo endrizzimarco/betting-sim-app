@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import SimulationForm from "./components/SimulationForm";
+import SessionDisplay from "./components/SessionDisplay";
 
 export default function App() {
   return (
@@ -9,7 +10,7 @@ export default function App() {
         source={require("./assets/bg.jpg")}
         style={styles.container}
       >
-        <SimulationForm />
+        <SessionDisplay />
         <StatusBar style="light" />
       </ImageBackground>
     </View>
