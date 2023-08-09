@@ -13,13 +13,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: yarn
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build
-        run: yarn predeploy 
+        run: npm run predeploy
 
       - name: Deploy with gh-pages
         run: |
