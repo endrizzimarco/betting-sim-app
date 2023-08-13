@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@rneui/themed";
+import { Button } from "react-native-paper";
 import { View, StyleSheet, Text, ImageBackground } from "react-native";
 import axios from "axios";
 
@@ -60,15 +60,10 @@ const SessionDisplay = () => {
         <Text style={styles.textshadow}>Round: {sessionData.round}</Text>
         <Text style={styles.textshadow}>Next Bet: {sessionData.next_bet}</Text>
 
-        <Button onPress={() => tickSession(1)} size="xl" color="green">
+        <Button onPress={() => tickSession(1)} mode="contained" elevated>
           WON
         </Button>
-        <Button
-          onPress={() => tickSession(0)}
-          buttonStyle={styles.button}
-          size="xl"
-          color="red"
-        >
+        <Button onPress={() => tickSession(0)} mode="contained">
           LOST
         </Button>
       </View>

@@ -1,4 +1,4 @@
-import { Button, Text, Card } from "@rneui/themed";
+import { Button, Text, Card } from "react-native-paper";
 import React, { useState } from "react";
 import axios from "axios";
 import { View, ImageBackground } from "react-native";
