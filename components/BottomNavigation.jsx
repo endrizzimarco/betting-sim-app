@@ -52,6 +52,8 @@ const NavigationComponent = () => {
       onIndexChange={setIndex}
       renderScene={renderScene}
       compact
+      sceneAnimationEnabled
+      sceneAnimationType="shifting"
     />
   );
 };
