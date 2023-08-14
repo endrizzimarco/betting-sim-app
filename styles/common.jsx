@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 10,
-    marginTop: 30,
   },
   card: {
     padding: 5,
@@ -19,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: -2,
     maxWidth: 100,
   },
-  inline: {
+  row: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",

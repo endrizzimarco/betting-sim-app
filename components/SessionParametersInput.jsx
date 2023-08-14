@@ -15,7 +15,7 @@ const SessionParametersInput = () => {
         Session parameters
       </Text>
       <Divider bold style={styles.divider} />
-      <View style={styles.inline}>
+      <View style={styles.row}>
         <View style={styles.column}>
           <Text>Bankroll</Text>
           <TextInput
