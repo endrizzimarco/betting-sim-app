@@ -1,8 +1,8 @@
-import React from "react";
+import { ParametersProvider } from "./components/ParametersContext";
 import { PaperProvider, MD3DarkTheme } from "react-native-paper";
+import { StyleSheet, View, ImageBackground } from "react-native";
 import BottomNavigation from "./components/BottomNavigation";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground } from "react-native";
 import axios from "axios";
 
 // Allow for background image to be shown
@@ -20,15 +20,17 @@ export default function App() {
 
   return (
     <PaperProvider theme={theme}>
-      <StatusBar style="light" translucent />
-      <ImageBackground
-        source={require("./assets/bg.jpg")}
-        style={styles.container}
-      >
-        <View style={styles.overlay}>
-          <BottomNavigation />
-        </View>
-      </ImageBackground>
+      <ParametersProvider>
+        <StatusBar style="light" translucent />
+        <ImageBackground
+          source={require("./assets/bg.jpg")}
+          style={styles.container}
+        >
+          <View style={styles.overlay}>
+            <BottomNavigation />
+          </View>
+        </ImageBackground>
+      </ParametersProvider>
     </PaperProvider>
   );
 }
