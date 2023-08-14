@@ -1,7 +1,7 @@
 import { ParametersProvider } from "./components/ParametersContext";
 import { PaperProvider, MD3DarkTheme } from "react-native-paper";
 import { StyleSheet, View, ImageBackground } from "react-native";
-import BottomNavigation from "./components/BottomNavigation";
+import BottomNavigation from "./views/BottomNavigation";
 import { StatusBar } from "expo-status-bar";
 import axios from "axios";
 

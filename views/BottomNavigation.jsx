@@ -1,14 +1,13 @@
-import * as React from "react";
 import { BottomNavigation, Text } from "react-native-paper";
-import SimulationForm from "./SimulationForm";
-import SessionDisplay from "./SessionDisplay";
-import { ImageBackground, StyleSheet } from "react-native";
+import SessionView from "./SessionView";
+import SessionDisplay from "../components/Session";
+import { useState } from "react";
 
 const MusicRoute = () => <Text>History</Text>;
 
 const NavigationComponent = () => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
     {
       key: "session",
       title: "Session",
@@ -24,7 +23,7 @@ const NavigationComponent = () => {
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    session: SimulationForm,
+    session: SessionView,
     optimise: SessionDisplay,
     history: MusicRoute,
   });
