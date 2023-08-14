@@ -4,23 +4,6 @@ import SimulationForm from "./SimulationForm";
 import SessionDisplay from "./SessionDisplay";
 import { ImageBackground, StyleSheet } from "react-native";
 
-const Background = (props) => (
-  <ImageBackground
-    source={require("../assets/bg.jpg")}
-    style={styles.container}
-  >
-    {props.children}
-  </ImageBackground>
-);
-
-const withBgWrapper = (Component) => {
-  return () => (
-    <Background>
-      <Component />
-    </Background>
-  );
-};
-
 const MusicRoute = () => <Text>History</Text>;
 
 const NavigationComponent = () => {
@@ -41,8 +24,8 @@ const NavigationComponent = () => {
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    session: withBgWrapper(SimulationForm),
-    optimise: withBgWrapper(SessionDisplay),
+    session: SimulationForm,
+    optimise: SessionDisplay,
     history: MusicRoute,
   });
 
@@ -52,20 +35,11 @@ const NavigationComponent = () => {
       onIndexChange={setIndex}
       renderScene={renderScene}
       compact
+      keyboardHidesNavigationBar={false} // using pan for keyboard, avoids flickering
       sceneAnimationEnabled
       sceneAnimationType="shifting"
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 50,
-    paddingHorizontal: 10,
-  },
-});
 
 export default NavigationComponent;
