@@ -20,7 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#E4DFE3"
+        "backgroundColor": "#252329"
       },
       "softwareKeyboardLayoutMode": "pan",
       "package": "com.endrizzimarco.bettingsimapp"
