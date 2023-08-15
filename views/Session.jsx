@@ -28,7 +28,7 @@ const session = {
   bankroll: 50,
 };
 
-const SessionDisplay = () => {
+const SessionDisplay = ({ sessionOver }) => {
   const [sessionInstance, setInstance] = useState(null);
   const [sessionData, setData] = useState(session);
   const [loading, setLoading] = useState(false);
@@ -43,11 +43,17 @@ const SessionDisplay = () => {
         session_instance: sessionInstance,
         data: JSON.stringify(test_params.data),
       };
-      const response = await axios.get(``, { params });
+      const response = await (await axios.get(``, { params })).data;
       console.log(response);
-      setInstance(response.data.state);
-      setData(response.data.data);
+
+      setInstance(response.state);
+      setData(response.data);
       setLoading(false);
+      if (response.data.chance == 0) {
+        sessionOver("lose");
+      } else if (response.data.chance == 100) {
+        sessionOver("win");
+      }
     } catch (error) {
       console.error("Error calling Lambda:", error);
     }
@@ -71,7 +77,11 @@ const SessionDisplay = () => {
       </View>
 
       {/* Session Data */}
-      <SessionData params={form} sessionData={sessionData} />
+      <SessionData
+        params={form}
+        sessionData={sessionData}
+        sessionOver={sessionOver}
+      />
 
       {/* Win/Lose buttons */}
       <View style={{ ...common.row, marginTop: 30 }}>
