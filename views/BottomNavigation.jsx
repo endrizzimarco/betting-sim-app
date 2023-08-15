@@ -1,6 +1,6 @@
 import { BottomNavigation, Text } from "react-native-paper";
 import SessionView from "./SessionView";
-import SessionDisplay from "../components/Session";
+import SessionDisplay from "./Session";
 import { useState } from "react";
 
 const MusicRoute = () => <Text>History</Text>;

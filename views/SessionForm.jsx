@@ -1,14 +1,14 @@
-import SessionParametersInput from "./SessionParametersInput";
+import SessionParametersInput from "../components/SessionParametersInput";
+import { useParametersContext } from "../components/ParametersContext";
 import { Button, Card, HelperText } from "react-native-paper";
-import { useParametersContext } from "./ParametersContext";
+import StrategyInput from "../components/StrategyInput";
 import responsiveSize from "../utils/calculateWidth.js";
+import GameInput from "../components/GameInput";
 import { Dimensions } from "react-native";
-import StrategyInput from "./StrategyInput";
 import styles from "../styles/common";
-import GameInput from "./GameInput";
 import { useState } from "react";
 
-const SimulationForm = ({ startSession }) => {
+const SessionForm = ({ startSession }) => {
   const [missing, setMissing] = useState(null);
   const { resetFields, form } = useParametersContext();
   const screenWidth = Dimensions.get("window").width;
@@ -53,4 +53,4 @@ const SimulationForm = ({ startSession }) => {
   );
 };
 
-export default SimulationForm;
+export default SessionForm;

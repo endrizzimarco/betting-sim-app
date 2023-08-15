@@ -1,5 +1,5 @@
-import SimulationForm from "../components/SimulationForm";
-import Session from "../components/Session";
+import SessionForm from "./SessionForm";
+import Session from "./Session";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "../styles/common";
@@ -10,7 +10,7 @@ const SessionView = () => {
   return (
     <View style={styles.page}>
       {sessionStarted === false ? (
-        <SimulationForm startSession={setSessionStarted} />
+        <SessionForm startSession={setSessionStarted} />
       ) : (
         <Session />
       )}
