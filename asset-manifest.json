@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.js": "/betting-sim-app/static/js/main.21f8466a.js",
-    "static/js/55.8a24ff44.js": "/betting-sim-app/static/js/55.8a24ff44.js",
+    "main.js": "/betting-sim-app/static/js/main.b377ddf1.js",
+    "static/js/724.24c71435.js": "/betting-sim-app/static/js/724.24c71435.js",
     "static/media/MaterialCommunityIcons.ttf": "/betting-sim-app/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/spin.gif": "/betting-sim-app/static/media/spin.56bf5f9d307e76e9d3fe.gif",
     "static/media/bg.jpg": "/betting-sim-app/static/media/bg.fdd6e14846e1217d1ef3.jpg",
     "static/media/cheerleader-pom-poms.gif": "/betting-sim-app/static/media/cheerleader-pom-poms.782f81e231025647cd7a.gif",
+    "static/media/fortnite-dance.gif": "/betting-sim-app/static/media/fortnite-dance.1acad69793c353474a5e.gif",
+    "static/media/cat-jump.gif": "/betting-sim-app/static/media/cat-jump.ba3cdbc63a16e7efdfc5.gif",
     "favicon.ico": "/betting-sim-app/favicon.ico",
     "index.html": "/betting-sim-app/index.html",
     "favicon-32.png": "/betting-sim-app/favicon-32.png",
     "favicon-16.png": "/betting-sim-app/favicon-16.png",
     "manifest.json": "/betting-sim-app/manifest.json",
     "serve.json": "/betting-sim-app/serve.json",
-    "main.21f8466a.js.map": "/betting-sim-app/static/js/main.21f8466a.js.map",
-    "55.8a24ff44.js.map": "/betting-sim-app/static/js/55.8a24ff44.js.map"
+    "main.b377ddf1.js.map": "/betting-sim-app/static/js/main.b377ddf1.js.map",
+    "724.24c71435.js.map": "/betting-sim-app/static/js/724.24c71435.js.map"
   },
   "entrypoints": [
-    "static/js/55.8a24ff44.js",
-    "static/js/main.21f8466a.js"
+    "static/js/724.24c71435.js",
+    "static/js/main.b377ddf1.js"
   ]
 }
