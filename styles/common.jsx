@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 10,
-  },
   card: {
     padding: 5,
   },
