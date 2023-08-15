@@ -9,7 +9,7 @@ const SessionView = () => {
 
   return (
     <View style={styles.page}>
-      {sessionStarted === true ? (
+      {sessionStarted === false ? (
         <SimulationForm startSession={setSessionStarted} />
       ) : (
         <Session />
