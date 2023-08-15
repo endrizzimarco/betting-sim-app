@@ -2,16 +2,13 @@ import SessionParametersInput from "../components/SessionParametersInput";
 import { useParametersContext } from "../components/ParametersContext";
 import { Button, Card, HelperText } from "react-native-paper";
 import StrategyInput from "../components/StrategyInput";
-import responsiveSize from "../utils/calculateWidth.js";
 import GameInput from "../components/GameInput";
-import { Dimensions } from "react-native";
 import styles from "../styles/common";
 import { useState } from "react";
 
 const SessionForm = ({ startSession }) => {
   const [missing, setMissing] = useState(null);
   const { resetFields, form } = useParametersContext();
-  const screenWidth = Dimensions.get("window").width;
 
   const validateForm = () => {
     setMissing(null);
@@ -29,10 +26,7 @@ const SessionForm = ({ startSession }) => {
   };
 
   return (
-    <Card
-      elevation={2}
-      style={[styles.card, { width: responsiveSize(screenWidth) }]}
-    >
+    <Card elevation={2} style={styles.card}>
       <Card.Content>
         <StrategyInput />
         <SessionParametersInput />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
+import { Text } from "react-native-paper";
 
 function getTimeElapsed(unixTimestamp) {
   const currentTimestamp = Math.floor(Date.now() / 1000); // Current UNIX timestamp in seconds
@@ -30,7 +30,7 @@ function TimerComponent() {
     return () => clearInterval(interval);
   }, [sessionStart]);
 
-  return <Text style={{ color: "white" }}>Duration: {elapsedTime}</Text>;
+  return <Text variant="labelMedium">Duration: {elapsedTime}</Text>;
 }
 
 export default TimerComponent;

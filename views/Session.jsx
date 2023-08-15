@@ -1,6 +1,5 @@
 import { View, StyleSheet, ImageBackground, Dimensions } from "react-native";
 import { useParametersContext } from "../components/ParametersContext";
-import responsiveSize from "../utils/calculateWidth.js";
 import { Button, Text } from "react-native-paper";
 import TimerComponent from "../components/TimerComponent";
 import ChanceDisplay from "../components/ChanceDisplay";
@@ -54,21 +53,20 @@ const SessionDisplay = () => {
     }
   };
 
-  const screenWidth = Dimensions.get("window").width;
-
   return (
-    <View style={[styles.root, { width: responsiveSize(screenWidth) }]}>
+    <View style={[styles.root]}>
       <View style={styles.topRow}>
         {/* Chance */}
         <ChanceDisplay sessionData={sessionData} loading={loading} />
 
         {/* Metadata */}
         <View style={{ ...common.column, ...styles.metadata }}>
-          <Text>Session ID: XYZ</Text>
+          <Text variant="labelMedium"> Session ID: XYZ</Text>
           <TimerComponent />
-          <Text>Initial Bankroll: £{form.bankroll}</Text>
-          <Text>Bet Unit: £{form.betUnit}</Text>
-          <Text>Profit Goal: £{form.profitGoal}</Text>
+          <Text variant="labelSmall">{form.strategy}</Text>
+          <Text variant="labelSmall">Initial Bankroll: £{form.bankroll}</Text>
+          <Text variant="labelSmall">Bet Unit: £{form.betUnit}</Text>
+          <Text variant="labelSmall">Profit Goal: £{form.profitGoal}</Text>
         </View>
       </View>
 
@@ -115,14 +113,13 @@ const SessionDisplay = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    paddingHorizontal: 10,
   },
   topRow: {
     flexDirection: "row",
     marginTop: 40,
     marginRight: 5,
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-end",
   },
   metadata: {
     alignItems: "flex-end",
