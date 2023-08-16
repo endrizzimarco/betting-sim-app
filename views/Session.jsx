@@ -5,43 +5,45 @@ import TimerComponent from "../components/TimerComponent";
 import ChanceDisplay from "../components/ChanceDisplay";
 import SessionData from "../components/SessionData";
 import common from "../styles/common";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-// TODO: remove
-const test_params = {
-  type: "simulate",
-  session_instance: null,
-  won: 0,
-  data: {
-    strategy: "labouchere",
-    bankroll: 50,
-    bet_unit: 5,
-    profit_goal: 100,
-  },
-};
-
-const session = {
-  chance: 0,
-  round: 1,
-  next_bet: 5,
-  bankroll: 50,
+const getGameType = (form) => {
+  switch (form.game) {
+    case "roulette":
+      return form.rouletteType;
+    case "baccarat":
+      return form.baccaratType;
+    case "blackjack":
+      return form.blackjackType;
+  }
 };
 
 const SessionDisplay = ({ sessionOver }) => {
   const [sessionInstance, setInstance] = useState(null);
-  const [sessionData, setData] = useState(session);
   const [loading, setLoading] = useState(false);
   const { form } = useParametersContext();
+  const [sessionData, setData] = useState({
+    chance: 0,
+    round: 1,
+    next_bet: form.betUnit,
+    bankroll: form.bankroll,
+  });
 
   const tickSession = async (won) => {
     try {
       setLoading(true);
       const params = {
-        ...test_params,
         won,
+        type: "simulate",
         session_instance: sessionInstance,
-        data: JSON.stringify(test_params.data),
+        data: JSON.stringify({
+          strategy: form.strategy,
+          game: form.game + "_" + getGameType(form),
+          bankroll: parseInt(form.bankroll),
+          bet_unit: parseFloat(form.betUnit),
+          profit_goal: parseInt(form.profitGoal),
+        }),
       };
       const response = await (await axios.get(``, { params })).data;
       console.log(response);
@@ -58,6 +60,10 @@ const SessionDisplay = ({ sessionOver }) => {
       console.error("Error calling Lambda:", error);
     }
   };
+
+  useEffect(() => {
+    tickSession(0);
+  }, []);
 
   return (
     <View style={[styles.root]}>
@@ -136,7 +142,7 @@ const styles = StyleSheet.create({
   },
   buttonContent: {
     paddingVertical: 30,
-    paddingHorizontal: 45,
+    paddingHorizontal: 40,
   },
   buttonLabel: {
     fontSize: 20,
