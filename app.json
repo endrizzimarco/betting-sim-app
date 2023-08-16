@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "betting-sim-app",
+    "name": "Betting Simulator",
     "slug": "betting-sim-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -20,7 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#252329"
+        "backgroundColor": "#423113"
       },
       "softwareKeyboardLayoutMode": "pan",
       "package": "com.endrizzimarco.bettingsimapp"
