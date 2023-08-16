@@ -2,8 +2,8 @@
   "background_color": "#ffffff",
   "display": "standalone",
   "lang": "en",
-  "name": "betting-sim-app",
-  "short_name": "betting-sim-app",
+  "name": "Betting Simulator",
+  "short_name": "Betting Simulator",
   "start_url": "/?utm_source=web_app_manifest",
   "orientation": "portrait",
   "related_applications": [
