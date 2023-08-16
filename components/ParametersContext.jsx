@@ -27,8 +27,6 @@ export const ParametersProvider = ({ children }) => {
   const [blackjackType, setBlackjackType] = useState("no_strategy");
 
   const resetFields = () => {
-    setStrategy("");
-    setShowDropDown(false);
     setBankroll("");
     setBetUnit("");
     setProfitGoal("");

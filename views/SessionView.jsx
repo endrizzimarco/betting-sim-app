@@ -15,10 +15,10 @@ const SessionView = () => {
   const { resetFields } = useParametersContext();
 
   if (startNewSession) {
-    resetFields();
     setStartNewSession(false);
     setGameOver(false);
     setSessionStarted(false);
+    resetFields();
   }
 
   return (

@@ -70,7 +70,7 @@ const SessionData = ({ sessionData, params }) => {
                 Progression
               </Text>
               <Text variant="headlineMedium" style={styles.centerText}>
-                {sessionData.progression}
+                {JSON.stringify(sessionData.progression)}
               </Text>
             </View>
           </View>
