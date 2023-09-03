@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   },
   metadata: {
     alignItems: "flex-end",
+    marginBottom: 3,
   },
   buttonContent: {
     paddingVertical: 30,

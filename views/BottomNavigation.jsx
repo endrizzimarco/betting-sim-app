@@ -1,6 +1,7 @@
 import { BottomNavigation, Text } from "react-native-paper";
 import SessionView from "./SessionView";
 import SessionDisplay from "./Session";
+import OptimiseView from "./OptimiseView";
 import { useState } from "react";
 
 const MusicRoute = () => <Text>History</Text>;
@@ -24,7 +25,7 @@ const NavigationComponent = () => {
 
   const renderScene = BottomNavigation.SceneMap({
     session: SessionView,
-    optimise: SessionDisplay,
+    optimise: OptimiseView,
     history: MusicRoute,
   });
 

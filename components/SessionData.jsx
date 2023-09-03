@@ -52,7 +52,7 @@ const SessionData = ({ sessionData, params }) => {
             { label: "Next Bet", value: `£${sessionData.next_bet}` },
             { label: "Bankroll", value: `£${sessionData.bankroll}` },
             {
-              label: "Unit Profit",
+              label: "Units",
               value: unitProfit,
               color: unitProfit >= 0 ? "green" : "red",
             },
